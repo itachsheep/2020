@@ -10,6 +10,7 @@ import com.xingen.commonlibrary.BaseApplication;
 public class AppApplication extends BaseApplication {
     @Override
     public void onCreate() {
+    //test
         super.onCreate();
     }
 }
