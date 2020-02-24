@@ -12,6 +12,7 @@ class RandomWordsState extends State<RandomWordsWidget> {
   final _save = new Set<WordPair>();
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
+
   @override
   Widget build(BuildContext context) {
     /*final wordPair = new WordPair.random();
@@ -98,6 +99,18 @@ class RandomWordsState extends State<RandomWordsWidget> {
           }
       )
     );
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 
 }
