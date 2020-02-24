@@ -16,8 +16,13 @@ class NoMaterialWidget extends StatelessWidget {
     );*/
 
     return new Center(
-      child: new Text('hello world',textDirection: TextDirection.ltr,
-      style: new TextStyle(fontSize: 40.0,color: Colors.black),),
+      child:new Column(
+        children: <Widget>[
+          new Text('hello world',textDirection: TextDirection.ltr,
+            style: new TextStyle(fontSize: 40.0,color: Colors.black),),
+          new Image(image: new AssetImage('image/my_image.png'),),
+        ],
+      ),
     );
   }
 
