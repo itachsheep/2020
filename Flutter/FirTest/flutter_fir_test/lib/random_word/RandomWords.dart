@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_fir_test/RandomWordsState.dart';
+import 'package:flutter_fir_test/random_word/RandomWordsState.dart';
 
 class RandomWordsWidget extends StatefulWidget {
   @override
