@@ -7,12 +7,24 @@ class ProjectPage extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-
     return new _ProjectPageState();
   }
 }
 class _ProjectPageState extends State<ProjectPage> {
   List<Data> data = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _getTabList();
+  }
+
+  void _getTabList() {
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return data.length == 0 ?
