@@ -20,7 +20,7 @@ public class MainActivity extends FlutterActivity {
   @Override
   public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
     GeneratedPluginRegistrant.registerWith(flutterEngine);
-    //flutterEngine.getPlugins().add();
+    //flutterEngine.getPlugins().add
   }
 
   @Override
@@ -43,6 +43,7 @@ public class MainActivity extends FlutterActivity {
         DebugLog.i(TAG,"setMessageHandler s: " + s);
       }
     };
+    //new MethodChannel(getFlutterEngine())
     methodChannel = new MethodChannel(messenger, "android_log");
     methodChannel.setMethodCallHandler(new MethodChannel.MethodCallHandler() {
       @Override

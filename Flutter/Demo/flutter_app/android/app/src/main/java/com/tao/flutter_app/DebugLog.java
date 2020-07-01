@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class DebugLog {
 
-    private static final String TAG = "DebugLog.";
+    private static final String TAG = "Demo.";
     public static void i(String tag, String msg) {
         Log.i(TAG + tag,msg);
     }
