@@ -1,4 +1,23 @@
-class ProjectTreeTreeItem {}
+class ProjectTreeItem {
+  List<Data> data;
+  int errorCode;
+  String errorMsg;
+
+  ProjectTreeItem({this.data,this.errorCode,this.errorMsg});
+
+  ProjectTreeItem.fromJson(Map<String,dynamic> json) {
+    if(json['data'] != null) {
+      data = new List<Data>();
+      json['data'].forEach((v){
+        data.add(new Data.fromJson(v));
+      });
+    }
+    errorCode = json['errorCode'];
+    errorMsg = json['errorMsg'];
+  }
+
+
+}
 
 class Data {
   List<Null> children;

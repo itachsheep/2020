@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:play_android/http/Http.dart';
+import 'package:play_android/http/api/Api.dart';
 import 'package:play_android/item/ProjectTreeItem.dart';
+import 'package:play_android/utils/logutil.dart';
 class ProjectPage extends StatefulWidget {
   ProjectPage({Key key}) : super(key:key);
 
@@ -11,6 +14,7 @@ class ProjectPage extends StatefulWidget {
   }
 }
 class _ProjectPageState extends State<ProjectPage> {
+  String tag = "ProjectPageState";
   List<Data> data = [];
 
   @override
@@ -20,8 +24,14 @@ class _ProjectPageState extends State<ProjectPage> {
     _getTabList();
   }
 
-  void _getTabList() {
-
+  void _getTabList() async {
+    var url = Api.PROJECT_TREE;
+    var response = await HttpUtil().get(url);
+    var item = ProjectTreeItem.fromJson(response);
+    LogUtils.d(tag,"_getTabList item: " + item.toString());
+    setState(() {
+      data = item.data;
+    });
   }
 
 
