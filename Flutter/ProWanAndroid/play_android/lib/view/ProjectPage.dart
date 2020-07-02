@@ -1,10 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:play_android/http/Http.dart';
 import 'package:play_android/http/api/Api.dart';
 import 'package:play_android/item/ProjectTreeItem.dart';
 import 'package:play_android/utils/logutil.dart';
+import 'package:play_android/item/ProjectListItem.dart' as proListItem;
 class ProjectPage extends StatefulWidget {
   ProjectPage({Key key}) : super(key:key);
 
@@ -28,7 +29,6 @@ class _ProjectPageState extends State<ProjectPage> {
     var url = Api.PROJECT_TREE;
     var response = await HttpUtil().get(url);
     var item = ProjectTreeItem.fromJson(response);
-    LogUtils.d(tag,"_getTabList item: " + item.toString());
     setState(() {
       data = item.data;
     });
@@ -64,10 +64,44 @@ class _ProjectPageState extends State<ProjectPage> {
             ),
           ),
           body: new TabBarView(children: data.map((item){
-            return Text(item.name + "-" + item.courseId.toString());
+            return ;
           }).toList()),
         )
     );
-
   }
+}
+
+class ProjectListContent extends StatefulWidget {
+  final int id;
+  ProjectListContent(this.id,{Key key}):super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+
+    return new ProjectListState();
+  }
+
+}
+
+class ProjectListState extends StatefulWidget {
+  var pageSize = 15;
+  var page = 0;
+  bool isHasMore = false;
+  List<proListItem.Datas> data = [];
+  final int cid;
+
+  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
+      new GlobalKey<RefreshIndicatorState>();
+
+  final ScrollController _scrollController =
+      new ScrollController(keepScrollOffset: false);
+
+  ProjectListState(this.cid);
+
+  @override
+  State<StatefulWidget> createState() {
+
+    return null;
+  }
+
 }
