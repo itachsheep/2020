@@ -1,3 +1,5 @@
+import 'package:play_android/utils/logutil.dart';
+
 class ProjectTreeItem {
   List<Data> data;
   int errorCode;
@@ -10,6 +12,7 @@ class ProjectTreeItem {
       data = new List<Data>();
       json['data'].forEach((v){
         data.add(new Data.fromJson(v));
+        LogUtils.d('ProjectTreeItem', " http ---- " + v.toString());
       });
     }
     errorCode = json['errorCode'];

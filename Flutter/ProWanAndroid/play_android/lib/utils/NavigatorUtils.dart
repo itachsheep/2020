@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:play_android/view/home/SearchPage.dart';
 //import 'package:mou/view/SearchListPage.dart';
 //import 'package:mou/item/KnowledgeTreeItem.dart' as n;
-
+import 'package:play_android/view/common/Details.dart';
 class NavigatorUtils {
   ///替换
   static pushReplacementNamed(BuildContext context, String routeName) {
@@ -22,11 +22,11 @@ class NavigatorUtils {
   }
 
   ///去详情
-  /*static gotoDetail(BuildContext context, String url, String title) {
+  static gotoDetail(BuildContext context, String url, String title) {
     return Navigator.push(context,
         new CupertinoPageRoute(builder: (context) =>
         new DetailsWidget(url, title)));
-  }*/
+  }
 
   ///去搜索界面
   static gotoSearch(BuildContext context) {

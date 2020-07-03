@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:play_android/test.dart';
+import 'package:play_android/view/ProjectPage.dart';
 import 'package:play_android/view/home/HomePage.dart';
 import 'package:play_android/view/knowledge/KnowledgePage.dart';
 
@@ -93,7 +94,7 @@ class NavigationState extends State<NavigationPage>
     pageData = new List();
     pageData..add(HomePage())
     ..add(KnowledgePage())
-    ..add(TestPage())
+    ..add(ProjectPage())
     ..add(TestPage());
 //    pageData..add(HomePage())..add(KnowledgePage())..add(ProjectPage())..add(
 //        PersonalPage());
