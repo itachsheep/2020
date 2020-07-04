@@ -22,9 +22,8 @@ class _ProjectPageState extends State<ProjectPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    //_getTabList();
+    _getTabList();
   }
 
   void _getTabList() async {
@@ -81,7 +80,6 @@ class ProjectListContent extends StatefulWidget {
   State<StatefulWidget> createState() {
     return new ProjectListState(id);
   }
-
 }
 
 class ProjectListState extends State<ProjectListContent> {

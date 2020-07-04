@@ -2,6 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:play_android/item/ProjectTreeItem.dart';
+import 'package:play_android/utils/logutil.dart';
 
 class DetailsWidget extends StatefulWidget {
   final String url;
@@ -24,6 +26,7 @@ class DetailsState extends State<DetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    LogUtils.d(TAG, "build url : " + url.toString());
     return new WebviewScaffold(url: url,
       appBar: new AppBar(
         title: new Text(titleName),
