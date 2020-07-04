@@ -1,3 +1,6 @@
+import 'package:play_android/item/ProjectTreeItem.dart';
+import 'package:play_android/utils/logutil.dart';
+
 class ProjectListItem {
   Data data;
   int errorCode;
@@ -45,6 +48,7 @@ class Data {
     if (json['datas'] != null) {
       datas = new List<Datas>();
       json['datas'].forEach((v) {
+        LogUtils.d(TAG, "Data fromJson v: " + v.toString());
         datas.add(new Datas.fromJson(v));
       });
     }

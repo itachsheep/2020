@@ -35,13 +35,13 @@ class MyAdjustState extends State<AwaitTestWidget> {
   }
   
   void _testAwait() {
-    LogUtils.w(TAG, "_testAwait start");
+    LogUtils.d(TAG, "_testAwait start");
 //    Future future = new Future((){
 //      LogUtils.w(TAG, "future -->");
 //    });
 
     foo();
-    LogUtils.w(TAG, "_testAwait end");
+    LogUtils.d(TAG, "_testAwait end");
   }
 
   /// https://www.cnblogs.com/lxlx1798/p/11131674.html
@@ -60,13 +60,13 @@ class MyAdjustState extends State<AwaitTestWidget> {
   ///一旦由 await 关键字引用的 Future 任务执行完成，await的下一行代码将立即执行。
   ///
   foo() async {
-    LogUtils.w(TAG, "foo start");
+    LogUtils.d(TAG, "foo start");
     String value = await bar();
-    LogUtils.w(TAG, "foo end，res =  $value ");
+    LogUtils.d(TAG, "foo end，res =  $value ");
 }
 
   bar() async {
-    LogUtils.w(TAG, "bar start");
+    LogUtils.d(TAG, "bar start");
     return " -----> bar = 100";
   }
 }

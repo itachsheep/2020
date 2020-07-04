@@ -24,7 +24,7 @@ class _ProjectPageState extends State<ProjectPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _getTabList();
+    //_getTabList();
   }
 
   void _getTabList() async {
@@ -36,9 +36,9 @@ class _ProjectPageState extends State<ProjectPage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
+    LogUtils.d(tag, "_ProjectPageState build data length = " + data.length.toString());
     return data.length == 0 ?
     SpinKitCircle(
       itemBuilder: (_, int index){
@@ -116,7 +116,7 @@ class ProjectListState extends State<ProjectListContent> {
 
   @override
   Widget build(BuildContext context) {
-
+    LogUtils.d(TAG, "ProjectListState build data.length = " + data.length.toString());
     return data.length == 0 ? SpinKitCircle(
       itemBuilder: (_, int index) {
         return DecoratedBox(

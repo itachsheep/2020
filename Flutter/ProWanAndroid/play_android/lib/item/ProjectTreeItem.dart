@@ -1,6 +1,8 @@
-import 'package:play_android/utils/logutil.dart';
 
+import 'package:play_android/utils/logutil.dart';
+final String TAG = "ProjectTreeItem";
 class ProjectTreeItem {
+
   List<Data> data;
   int errorCode;
   String errorMsg;
@@ -8,11 +10,12 @@ class ProjectTreeItem {
   ProjectTreeItem({this.data,this.errorCode,this.errorMsg});
 
   ProjectTreeItem.fromJson(Map<String,dynamic> json) {
+    LogUtils.d(TAG, "ProjectTreeItem fromJson json: " + json.toString());
     if(json['data'] != null) {
       data = new List<Data>();
       json['data'].forEach((v){
         data.add(new Data.fromJson(v));
-        LogUtils.d('ProjectTreeItem', " http ---- " + v.toString());
+        LogUtils.d(TAG, "ProjectTreeItem fromJson v: " + v.toString());
       });
     }
     errorCode = json['errorCode'];
