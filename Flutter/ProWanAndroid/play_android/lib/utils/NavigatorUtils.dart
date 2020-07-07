@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 //import 'package:mou/view/KnowledgeListPage.dart';
 //import 'package:mou/view/common/Details.dart';
 import 'package:play_android/view/home/SearchPage.dart';
+import 'package:play_android/view/personal/AboutUsPage.dart';
 //import 'package:mou/view/SearchListPage.dart';
 //import 'package:mou/item/KnowledgeTreeItem.dart' as n;
-import 'package:play_android/view/common/Details.dart';
+import 'package:play_android/view/project/Details.dart';
 class NavigatorUtils {
   ///替换
   static pushReplacementNamed(BuildContext context, String routeName) {
@@ -50,9 +51,9 @@ class NavigatorUtils {
   }*/
 
   ///关于我界面
-  /*static gotoAboutUs(BuildContext context) {
+  static gotoAboutUs(BuildContext context) {
     return Navigator.push(context,
         new CupertinoPageRoute(builder: (context) =>
         new AboutUsPage()));
-  }*/
+  }
 }
