@@ -19,7 +19,7 @@ class RandomWordsState extends State<RandomWordsWidget> {
   Widget build(BuildContext context) {
     /*final wordPair = new WordPair.random();
     return new Text(wordPair.asPascalCase);*/
-    LogUtils.i(TAG, "build");
+    LogUtils.d(TAG, "build");
     return new Scaffold(
       appBar:  new AppBar(
 
@@ -63,7 +63,6 @@ class RandomWordsState extends State<RandomWordsWidget> {
       color: alreadySave ? Colors.red : null,),
 
       onTap: () {
-        Future<String> printLogI = LogUtils.i(TAG, "onTap");
         LogUtils.d(TAG, "tttttaowei");
         setState(() {
           if(alreadySave) {
@@ -109,7 +108,7 @@ class RandomWordsState extends State<RandomWordsWidget> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    LogUtils.i(TAG, "initState");
+    LogUtils.d(TAG, "initState");
 
     MethodChannel channel = new MethodChannel("android_log");
     channel.setMethodCallHandler(platformCallHandler);
@@ -127,7 +126,7 @@ class RandomWordsState extends State<RandomWordsWidget> {
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
-    LogUtils.i(TAG, "didChangeDependencies");
+    LogUtils.d(TAG, "didChangeDependencies");
     
   }
 
@@ -135,20 +134,20 @@ class RandomWordsState extends State<RandomWordsWidget> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    LogUtils.i(TAG, "dispose");
+    LogUtils.d(TAG, "dispose");
   }
 
   @override
   void setState(fn) {
     // TODO: implement setState
     super.setState(fn);
-    LogUtils.i(TAG, "setState");
+    LogUtils.d(TAG, "setState");
   }
 
   @override
   void didUpdateWidget(RandomWordsWidget oldWidget) {
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
-    LogUtils.i(TAG, "didUpdateWidget");
+    LogUtils.d(TAG, "didUpdateWidget");
   }
 }

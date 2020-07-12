@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/LogUtils.dart';
-import 'package:flutter_app/widget_frame/RefreshTestWidget.dart';
+import 'package:flutter_app/widget/RefreshTestWidget.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class WebViewTestWidget extends StatefulWidget {
