@@ -6,17 +6,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1ed15b7-36b8-475e-989d-e98f102b419b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/widget/CustomAppbarWidget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_bak.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/random_word/RandomWordsState.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/random_word/RandomWordsState.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget_frame/AwaitTestWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/AwaitTestWidget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget_frame/NavigatorTest.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/NavigatorTest.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget_frame/NoMaterialWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/NoMaterialWidget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget_frame/RefreshTestWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/RefreshTestWidget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget_frame/WebViewTestWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/WebViewTestWidget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget_frame/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProWanAndroid/.idea/ProWanAndroid.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProWanAndroid/.idea/ProWanAndroid.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProWanAndroid/play_android/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ProWanAndroid/play_android/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/.idea/dictionaries/weitao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/androidTest/java/com/tao/leak/ExampleInstrumentedTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/java/com/tao/leak/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/java/com/tao/leak/MyApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/app/src/test/java/com/tao/leak/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LeakCanary/settings.gradle" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +60,7 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="3HXGY17603000091" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_4_API_29" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -92,22 +125,22 @@
       <screen x="0" y="23" width="1440" height="810" />
     </state>
     <state x="373" y="156" key="#main.dart/0.23.1440.810@0.23.1440.810" timestamp="1594427046561" />
-    <state width="1398" height="115" key="GridCell.Tab.0.bottom" timestamp="1594514904698">
+    <state width="1398" height="146" key="GridCell.Tab.0.bottom" timestamp="1594519125323">
       <screen x="0" y="23" width="1440" height="810" />
     </state>
-    <state width="1398" height="115" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1594514904698" />
-    <state width="1398" height="115" key="GridCell.Tab.0.center" timestamp="1594514904697">
+    <state width="1398" height="146" key="GridCell.Tab.0.bottom/0.23.1440.810@0.23.1440.810" timestamp="1594519125323" />
+    <state width="1398" height="146" key="GridCell.Tab.0.center" timestamp="1594519125323">
       <screen x="0" y="23" width="1440" height="810" />
     </state>
-    <state width="1398" height="115" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1594514904697" />
-    <state width="1398" height="115" key="GridCell.Tab.0.left" timestamp="1594514904696">
+    <state width="1398" height="146" key="GridCell.Tab.0.center/0.23.1440.810@0.23.1440.810" timestamp="1594519125323" />
+    <state width="1398" height="146" key="GridCell.Tab.0.left" timestamp="1594519125323">
       <screen x="0" y="23" width="1440" height="810" />
     </state>
-    <state width="1398" height="115" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1594514904696" />
-    <state width="1398" height="115" key="GridCell.Tab.0.right" timestamp="1594514904698">
+    <state width="1398" height="146" key="GridCell.Tab.0.left/0.23.1440.810@0.23.1440.810" timestamp="1594519125323" />
+    <state width="1398" height="146" key="GridCell.Tab.0.right" timestamp="1594519125323">
       <screen x="0" y="23" width="1440" height="810" />
     </state>
-    <state width="1398" height="115" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1594514904698" />
+    <state width="1398" height="146" key="GridCell.Tab.0.right/0.23.1440.810@0.23.1440.810" timestamp="1594519125323" />
     <state x="101" y="123" width="1240" height="610" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1594514227174">
       <screen x="0" y="23" width="1440" height="810" />
     </state>
