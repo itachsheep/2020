@@ -5,10 +5,17 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+set(LOCAL_ALLOW_UNDEFINED_SYMBOLS true)
 
-
-include_directories(${CMAKE_SOURCE_DIR}/ffmpeg/include)
+include_directories(${CMAKE_SOURCE_DIR}/ffmpeg/include/libavcodec)
+include_directories(${CMAKE_SOURCE_DIR}/ffmpeg/include/libvdevice)
+include_directories(${CMAKE_SOURCE_DIR}/ffmpeg/include/libvfilter)
+include_directories(${CMAKE_SOURCE_DIR}/ffmpeg/include/libvformat)
+include_directories(${CMAKE_SOURCE_DIR}/ffmpeg/include/libavutil)
+include_directories(${CMAKE_SOURCE_DIR}/ffmpeg/include/libpostproc)
+include_directories(${CMAKE_SOURCE_DIR}/ffmpeg/include/libswresample)
+include_directories(${CMAKE_SOURCE_DIR}/ffmpeg/include/libwscale)
 include_directories(${CMAKE_SOURCE_DIR}/common)
 include_directories(${CMAKE_SOURCE_DIR}/jni)
 include_directories(${CMAKE_SOURCE_DIR}/decoder)

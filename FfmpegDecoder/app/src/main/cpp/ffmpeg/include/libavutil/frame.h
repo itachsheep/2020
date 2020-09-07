@@ -22,7 +22,7 @@
 
 #include <stdint.h>
 
-#include "libavcodec/version.h"
+#include "../libavcodec/version.h"
 
 #include "avutil.h"
 #include "buffer.h"

@@ -6,14 +6,15 @@ android {
 
     defaultConfig {
         applicationId "com.tao.ffmpegdecoder"
-        minSdkVersion 26
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
-            abiFilters 'armeabi-v7a'
+//            abiFilters 'armeabi-v7a'
+            abiFilters 'x86'
 //            abiFilters 'armeabi'
         }
         externalNativeBuild {
