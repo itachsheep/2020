@@ -15,6 +15,30 @@ extern "C" {
 JNIEXPORT jstring JNICALL Java_com_example_ecliptest_MyDest_stringFromJNI
   (JNIEnv *, jobject);
 
+/*
+ * Class:     com_example_ecliptest_MyDest
+ * Method:    init
+ * Signature: (Ljava/lang/String;Ljava/lang/String;)I
+ */
+JNIEXPORT jint JNICALL Java_com_example_ecliptest_MyDest_init
+  (JNIEnv *, jobject, jstring, jstring);
+
+/*
+ * Class:     com_example_ecliptest_MyDest
+ * Method:    decode
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_example_ecliptest_MyDest_decode
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     com_example_ecliptest_MyDest
+ * Method:    destroy
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_example_ecliptest_MyDest_destroy
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif
