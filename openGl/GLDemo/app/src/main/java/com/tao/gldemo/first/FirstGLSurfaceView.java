@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import static javax.microedition.khronos.opengles.GL10.GL_COLOR_BUFFER_BIT;
+
 public class FirstGLSurfaceView extends GLSurfaceView {
     public FirstGLSurfaceView(Context context) {
         this(context,null);
@@ -16,7 +18,6 @@ public class FirstGLSurfaceView extends GLSurfaceView {
 
     public FirstGLSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         setRenderer(new FirstRender());
     }
 }
@@ -35,6 +36,7 @@ class FirstRender implements GLSurfaceView.Renderer {
 
     @Override
     public void onDrawFrame(GL10 gl10) {
-
+        // Clear the rendering surface.
+        GLES20.glClear(GL_COLOR_BUFFER_BIT);
     }
 }

@@ -7,6 +7,7 @@
     tools:context=".first.FirstActivity">
 
     <com.tao.gldemo.first.FirstGLSurfaceView
+        android:id="@+id/glSurface"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
