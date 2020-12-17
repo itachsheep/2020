@@ -18,6 +18,10 @@
         </activity>
 
         <activity android:name=".airhockey1.AirHockey1Activity">
+
+        </activity>
+
+        <activity android:name=".airhockey2.AirHockey2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
