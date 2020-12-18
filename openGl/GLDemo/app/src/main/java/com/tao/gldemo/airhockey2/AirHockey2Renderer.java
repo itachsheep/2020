@@ -60,12 +60,25 @@ public class AirHockey2Renderer implements GLSurfaceView.Renderer {
         float[] tableVerticesWithTriangles = {
                 // Order of coordinates: X, Y, R, G, B
                 // Triangle Fan
-                0f,    0f,   1f,   1f,   1f,
-                -0.5f, -0.5f, 0.7f, 0.7f, 0.7f,
-                0.5f, -0.5f, 0.7f, 0.7f, 0.7f,
-                0.5f,  0.5f, 0.7f, 0.7f, 0.7f,
-                -0.5f,  0.5f, 0.7f, 0.7f, 0.7f,
-                -0.5f, -0.5f, 0.7f, 0.7f, 0.7f,
+                0f,    0f,   1f,   1f,   1f,//中心点
+                -0.5f, -0.5f, 1f, 0f, 0f,//左下
+                -0.3f, -0.6f, 0.7f, 0.7f, 0.7f,
+                0.2f, -0.6f, 0.7f, 0.7f, 0.7f,
+
+                0.5f, -0.5f, 0f, 0f, 1f,//右下
+                0.6f, -0.3f, 0.7f, 0.7f, 0.7f,
+                0.6f, 0.3f, 0.7f, 0.7f, 0.7f,
+
+                0.5f,  0.5f, 0f, 1f, 0f,//右上
+                0.2f,  0.6f, 0.7f, 0.7f, 0.7f,
+                -0.3f,  0.6f, 0.7f, 0.7f, 0.7f,
+
+
+                -0.5f,  0.5f, 0f, 0f, 1f,//左上
+                -0.6f,  0.2f, 0.7f, 0.7f, 0.7f,
+                -0.6f,  -0.2f, 0.7f, 0.7f, 0.7f,
+
+                -0.5f, -0.5f, 1f, 0f, 0f,//左下
 
                 // Line 1
                 -0.5f, 0f, 1f, 0f, 0f,
@@ -141,15 +154,15 @@ public class AirHockey2Renderer implements GLSurfaceView.Renderer {
         glClear(GL_COLOR_BUFFER_BIT);
 
         // Draw the table.
-        glDrawArrays(GL_TRIANGLE_FAN, 0, 6);
+        glDrawArrays(GL_TRIANGLE_FAN, 0, 14);
 
         // Draw the center dividing line.
-        glDrawArrays(GL_LINES, 6, 2);
+        glDrawArrays(GL_LINES, 14, 2);
 
         // Draw the first mallet.
-        glDrawArrays(GL_POINTS, 8, 1);
+        glDrawArrays(GL_POINTS, 16, 1);
 
         // Draw the second mallet.
-        glDrawArrays(GL_POINTS, 9, 1);
+        glDrawArrays(GL_POINTS, 17, 1);
     }
 }
