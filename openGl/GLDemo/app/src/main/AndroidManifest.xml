@@ -22,6 +22,10 @@
         </activity>
 
         <activity android:name=".airhockey2.AirHockey2Activity">
+
+        </activity>
+
+        <activity android:name=".airhockeyortho3.AirHockey3Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
