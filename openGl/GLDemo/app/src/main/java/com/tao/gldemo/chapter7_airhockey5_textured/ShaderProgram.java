@@ -1,10 +1,10 @@
-package com.tao.gldemo.airhockey5_textured;
+package com.tao.gldemo.chapter7_airhockey5_textured;
 
 import android.content.Context;
 import android.opengl.GLES20;
 
-import com.tao.gldemo.airhockey1.ShaderHelper;
-import com.tao.gldemo.airhockey1.TextResourceReader;
+import com.tao.gldemo.chapter3_airhockey1.ShaderHelper;
+import com.tao.gldemo.chapter3_airhockey1.TextResourceReader;
 
 abstract class ShaderProgram {
     // Uniform constants

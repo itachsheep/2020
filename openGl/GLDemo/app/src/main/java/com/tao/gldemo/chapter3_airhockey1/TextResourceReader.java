@@ -1,4 +1,4 @@
-package com.tao.gldemo.airhockey1;
+package com.tao.gldemo.chapter3_airhockey1;
 
 import java.io.BufferedReader;
 import java.io.IOException;

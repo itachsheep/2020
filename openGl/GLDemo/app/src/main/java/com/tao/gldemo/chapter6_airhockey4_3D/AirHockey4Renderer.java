@@ -1,4 +1,4 @@
-package com.tao.gldemo.airhockey4_3D;
+package com.tao.gldemo.chapter6_airhockey4_3D;
 
 import android.content.Context;
 import android.opengl.GLES20;
@@ -6,8 +6,8 @@ import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 
 import com.tao.gldemo.R;
-import com.tao.gldemo.airhockey1.ShaderHelper;
-import com.tao.gldemo.airhockey1.TextResourceReader;
+import com.tao.gldemo.chapter3_airhockey1.ShaderHelper;
+import com.tao.gldemo.chapter3_airhockey1.TextResourceReader;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

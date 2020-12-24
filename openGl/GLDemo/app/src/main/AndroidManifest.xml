@@ -17,23 +17,23 @@
 
         </activity>
 
-        <activity android:name=".airhockey1.AirHockey1Activity">
+        <activity android:name=".chapter3_airhockey1.AirHockey1Activity">
 
         </activity>
 
-        <activity android:name=".airhockey2.AirHockey2Activity">
+        <activity android:name=".chapter4_airhockey2.AirHockey2Activity">
 
         </activity>
 
-        <activity android:name=".airhockey3ortho.AirHockey3Activity">
+        <activity android:name=".chapter5_airhockey3ortho.AirHockey3Activity">
 
         </activity>
 
-        <activity android:name=".airhockey4_3D.AirHockey4Activity">
+        <activity android:name=".chapter6_airhockey4_3D.AirHockey4Activity">
 
         </activity>
 
-        <activity android:name=".airhockey5_textured.AirHockey5Activity">
+        <activity android:name=".chapter7_airhockey5_textured.AirHockey5Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

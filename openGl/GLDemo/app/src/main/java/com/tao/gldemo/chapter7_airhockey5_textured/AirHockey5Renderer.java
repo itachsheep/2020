@@ -1,4 +1,4 @@
-package com.tao.gldemo.airhockey5_textured;
+package com.tao.gldemo.chapter7_airhockey5_textured;
 
 import android.content.Context;
 import android.opengl.GLES20;
@@ -7,28 +7,13 @@ import android.opengl.Matrix;
 
 import com.tao.gldemo.LogUtils;
 import com.tao.gldemo.R;
-import com.tao.gldemo.airhockey1.ShaderHelper;
-import com.tao.gldemo.airhockey1.TextResourceReader;
-import com.tao.gldemo.airhockey4_3D.MatrixHelper;
-
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
+import com.tao.gldemo.chapter6_airhockey4_3D.MatrixHelper;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
-import static android.opengl.GLES20.GL_FLOAT;
-import static android.opengl.GLES20.GL_LINES;
-import static android.opengl.GLES20.GL_POINTS;
-import static android.opengl.GLES20.GL_TRIANGLE_FAN;
-import static android.opengl.GLES20.glClear;
 import static android.opengl.GLES20.glClearColor;
-import static android.opengl.GLES20.glDrawArrays;
-import static android.opengl.GLES20.glEnableVertexAttribArray;
-import static android.opengl.GLES20.glGetAttribLocation;
-import static android.opengl.GLES20.glUseProgram;
 import static android.opengl.GLES20.glVertexAttribPointer;
 
 public class AirHockey5Renderer implements GLSurfaceView.Renderer {

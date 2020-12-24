@@ -1,4 +1,4 @@
-package com.tao.gldemo.airhockey4_3D;
+package com.tao.gldemo.chapter6_airhockey4_3D;
 
 public class MatrixHelper {
 

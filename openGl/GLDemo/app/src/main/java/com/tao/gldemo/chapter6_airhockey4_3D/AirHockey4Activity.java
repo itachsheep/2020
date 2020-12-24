@@ -1,11 +1,9 @@
-package com.tao.gldemo.airhockey4_3D;
+package com.tao.gldemo.chapter6_airhockey4_3D;
 
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.tao.gldemo.airhockey3ortho.AirHockey3Renderer;
 
 public class AirHockey4Activity extends AppCompatActivity {
     GLSurfaceView glSurfaceView;

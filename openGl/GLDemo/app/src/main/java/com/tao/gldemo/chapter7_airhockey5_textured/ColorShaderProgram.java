@@ -6,10 +6,9 @@
  * @Date 2020.12.23
  */
 
-package com.tao.gldemo.airhockey5_textured;
+package com.tao.gldemo.chapter7_airhockey5_textured;
 
 import android.content.Context;
-import android.opengl.GLES20;
 
 import com.tao.gldemo.R;
 

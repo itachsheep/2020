@@ -6,11 +6,11 @@
  * @Date
  */
 
-package com.tao.gldemo.airhockey5_textured;
+package com.tao.gldemo.chapter7_airhockey5_textured;
 
 import android.opengl.GLES20;
 
-import static com.tao.gldemo.airhockey5_textured.VertexArray.BYTES_PER_FLOAT;
+import static com.tao.gldemo.chapter7_airhockey5_textured.VertexArray.BYTES_PER_FLOAT;
 
 public class Mallet {
 

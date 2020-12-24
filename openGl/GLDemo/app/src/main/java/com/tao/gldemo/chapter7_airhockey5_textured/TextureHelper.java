@@ -1,4 +1,4 @@
-package com.tao.gldemo.airhockey5_textured;
+package com.tao.gldemo.chapter7_airhockey5_textured;
 
 import android.content.Context;
 import android.graphics.Bitmap;

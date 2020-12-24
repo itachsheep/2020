@@ -1,4 +1,4 @@
-package com.tao.gldemo.airhockey1;
+package com.tao.gldemo.chapter3_airhockey1;
 
 import android.content.Context;
 import android.opengl.GLES20;
