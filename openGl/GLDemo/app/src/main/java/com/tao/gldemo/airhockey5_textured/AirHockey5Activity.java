@@ -16,7 +16,7 @@ public class AirHockey5Activity extends AppCompatActivity {
         glSurfaceView = new GLSurfaceView(this);
         // Request an OpenGL ES 2.0 compatible context.
         glSurfaceView.setEGLContextClientVersion(2);
-        glSurfaceView.setEGLConfigChooser(8 , 8, 8, 8, 16, 0);
+        //glSurfaceView.setEGLConfigChooser(8 , 8, 8, 8, 16, 0);
         glSurfaceView.setRenderer(new AirHockey5Renderer(this));
         setContentView(glSurfaceView);
     }
@@ -24,12 +24,12 @@ public class AirHockey5Activity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //glSurfaceView.onResume();
+        glSurfaceView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        //glSurfaceView.onPause();
+        glSurfaceView.onPause();
     }
 }

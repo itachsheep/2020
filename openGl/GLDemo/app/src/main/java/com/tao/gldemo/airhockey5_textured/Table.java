@@ -1,5 +1,7 @@
 package com.tao.gldemo.airhockey5_textured;
 
+import android.opengl.GLES20;
+
 import static com.tao.gldemo.airhockey5_textured.VertexArray.BYTES_PER_FLOAT;
 
 public class Table {
@@ -43,5 +45,9 @@ public class Table {
                 textureProgram.getTextureCoordinatesAttributeLocation(),
                 TEXTURE_COORDINATES_COMPONENT_COUNT,
                 STRIDE);
+    }
+
+    public void draw() {
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLE_FAN, 0, 6);
     }
 }

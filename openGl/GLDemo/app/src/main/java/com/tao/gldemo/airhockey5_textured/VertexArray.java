@@ -23,6 +23,7 @@ public class VertexArray {
         GLES20.glVertexAttribPointer(attributeLocation, componentCount, GLES20.GL_FLOAT,
                 false, stride, floatBuffer);
         GLES20.glEnableVertexAttribArray(attributeLocation);
+
         floatBuffer.position(0);
     }
 }

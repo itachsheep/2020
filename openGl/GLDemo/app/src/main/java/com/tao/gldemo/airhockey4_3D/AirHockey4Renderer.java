@@ -198,14 +198,18 @@ public class AirHockey4Renderer implements GLSurfaceView.Renderer {
                     -aspectRatio,aspectRatio,-1f,1f);
         }*/
 
+       //创建投影矩阵，基于y轴的视野 45，计算焦距
        MatrixHelper.perspectiveM(projectionMatrix,45,
                (float)width/(float)height, 1f,10f);
 
        Matrix.setIdentityM(modelMatrix,0);
+       //将曲棍球桌子移到距离内
        Matrix.translateM(modelMatrix,0,0f,0f,-2.5f);
+       //增加旋转
        Matrix.rotateM(modelMatrix,0,-60f,1f,0f,0f);
 
        final float[] temp = new float[16];
+       //相乘后，保存
        Matrix.multiplyMM(temp,0,projectionMatrix,0,modelMatrix,0);
        System.arraycopy(temp,0,projectionMatrix,0,temp.length);
 
