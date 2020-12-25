@@ -24,11 +24,14 @@ public class AirHockey5Renderer implements GLSurfaceView.Renderer {
 
     private Table table;
     private Mallet mallet;
+    private Cup cup;
 
     private TextureShaderProgram textureProgram;
+    private TextureShaderProgram cupProgram;
     private ColorShaderProgram colorProgram;
 
     private int texture;
+    private int cupTexture;
 
     public AirHockey5Renderer(Context context) {
         mContext = context;
@@ -41,12 +44,18 @@ public class AirHockey5Renderer implements GLSurfaceView.Renderer {
 
         table = new Table();
         mallet = new Mallet();
+        cup = new Cup();
 
         textureProgram = new TextureShaderProgram(mContext);
+        cupProgram = new TextureShaderProgram(mContext);
         colorProgram = new ColorShaderProgram(mContext);
+
         //用于绘制桌面的纹理
         texture = TextureHelper.loadTexture(mContext, R.drawable.air_hockey_surface);
-        LogUtils.d(TAG,"onSurfaceCreated texture: " + texture);
+        cupTexture = TextureHelper.loadTexture(mContext,R.drawable.pikaqiu);
+
+        LogUtils.d(TAG,"onSurfaceCreated texture: " + texture +
+                ", texturePkq: " + cupTexture);
     }
 
     @Override
@@ -80,6 +89,12 @@ public class AirHockey5Renderer implements GLSurfaceView.Renderer {
         textureProgram.setUniforms(projectionMatrix, texture);
         table.bindData(textureProgram);
         table.draw();
+
+        // Draw the cup
+        cupProgram.useProgram();
+        cupProgram.setUniforms(projectionMatrix, cupTexture);
+        cup.bindData(cupProgram);
+        cup.draw();
 
         // Draw the mallets.
         colorProgram.useProgram();
