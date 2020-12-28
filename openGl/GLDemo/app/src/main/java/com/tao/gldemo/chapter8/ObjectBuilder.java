@@ -53,6 +53,14 @@ public class ObjectBuilder {
         return builder.build();
     }
 
+    /**
+     * 用两个圆柱体构造一个木槌，
+     * @param center
+     * @param radius
+     * @param height
+     * @param numPoints
+     * @return
+     */
     static GeneratedData createMallet(
             Point center, float radius, float height, int numPoints) {
         int size = sizeOfCircleInVertices(numPoints) * 2
@@ -155,6 +163,11 @@ public class ObjectBuilder {
         });
     }
 
+    /**
+     * 用三角形带 构造冰球的侧面
+     * @param cylinder
+     * @param numPoints
+     */
     private void appendOpenCylinder(Cylinder cylinder, int numPoints) {
         final int startVertex = offset / FLOATS_PER_VERTEX;
         final int numVertices = sizeOfOpenCylinderInVertices(numPoints);

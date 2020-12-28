@@ -1,6 +1,6 @@
 /**
- * @ClassName: Mollet 用颜色着色器绘制木槌
- * @Description: (用一句话描述该文件做什么)
+ * @ClassName: Puck
+ * @Description:
  * @author taowei
  * @version V1.0
  * @Date
@@ -8,43 +8,44 @@
 
 package com.tao.gldemo.chapter8;
 
-import com.tao.gldemo.chapter8.Geometry;
-import com.tao.gldemo.chapter8.ObjectBuilder.DrawCommand;
+import com.tao.gldemo.chapter8.*;
 import com.tao.gldemo.chapter8.ObjectBuilder.GeneratedData;
-import android.opengl.GLES20;
-
+import com.tao.gldemo.chapter8.ObjectBuilder.DrawCommand;
 import java.util.List;
 
-import static com.tao.gldemo.chapter7_airhockey5_textured.VertexArray.BYTES_PER_FLOAT;
-
-public class Mallet {
+/**
+ * 绘制冰球
+ */
+public class Puck {
     private static final int POSITION_COMPONENT_COUNT = 3;
 
-    public final float radius;
-    public final float height;
+    public final float radius, height;
 
     private final VertexArray vertexArray;
-    private final List<DrawCommand> drawList;
+    private final List<ObjectBuilder.DrawCommand> drawList;
 
-    public Mallet(float radius, float height, int numPointsAroundMallet) {
-        GeneratedData generatedData = ObjectBuilder.createMallet(new Geometry.Point(0f,
-                0f, 0f), radius, height, numPointsAroundMallet);
-
+    public Puck(float radius, float height, int numPointsAroundPuck) {
+        GeneratedData generatedData = ObjectBuilder.createPuck(new Geometry.Cylinder(
+                new Geometry.Point(0f, 0f, 0f), radius, height), numPointsAroundPuck);
         this.radius = radius;
         this.height = height;
 
         vertexArray = new VertexArray(generatedData.vertexData);
         drawList = generatedData.drawList;
     }
+
+    /**
+     * 顶点数据绑定到着色器
+     * @param colorProgram
+     */
     public void bindData(ColorShaderProgram colorProgram) {
         vertexArray.setVertexAttribPointer(0,
                 colorProgram.getPositionAttributeLocation(),
                 POSITION_COMPONENT_COUNT, 0);
     }
     public void draw() {
-        for (DrawCommand drawCommand : drawList) {
+        for (ObjectBuilder.DrawCommand drawCommand : drawList) {
             drawCommand.draw();
         }
     }
 }
-

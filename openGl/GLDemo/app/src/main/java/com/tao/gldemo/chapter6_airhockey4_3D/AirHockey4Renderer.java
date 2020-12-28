@@ -185,6 +185,9 @@ public class AirHockey4Renderer implements GLSurfaceView.Renderer {
     public void onSurfaceChanged(GL10 gl10, int width, int height) {
         // Set the OpenGL viewport to fill the entire surface.
         GLES20.glViewport(0, 0, width, height);
+        /**
+         * 1，通过正交矩阵，调整宽高比
+         */
        /* final float aspectRatio = width > height ?
                 (float) width / (float) height :
                 (float) height / (float) width;
@@ -198,6 +201,9 @@ public class AirHockey4Renderer implements GLSurfaceView.Renderer {
                     -aspectRatio,aspectRatio,-1f,1f);
         }*/
 
+        /**
+         * 切换到投影矩阵，获得一个三维投影
+         */
        //创建投影矩阵，基于y轴的视野 45，计算焦距
        MatrixHelper.perspectiveM(projectionMatrix,45,
                (float)width/(float)height, 1f,10f);
