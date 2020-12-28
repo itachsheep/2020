@@ -204,6 +204,7 @@ public class AirHockey4Renderer implements GLSurfaceView.Renderer {
 
        Matrix.setIdentityM(modelMatrix,0);
        //将曲棍球桌子移到距离内
+
        Matrix.translateM(modelMatrix,0,0f,0f,-2.5f);
        //增加旋转
        Matrix.rotateM(modelMatrix,0,-60f,1f,0f,0f);
