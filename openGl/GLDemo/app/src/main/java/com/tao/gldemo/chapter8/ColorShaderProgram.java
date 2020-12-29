@@ -27,8 +27,8 @@ public class ColorShaderProgram extends ShaderProgram {
 //    private final int aColorLocation;
 
     public ColorShaderProgram(Context context) {
-        super(context, R.raw.simple_mallet_vertex_shader5,
-                R.raw.simple_mallet_fragment_shader5);
+        super(context, R.raw.chap8_simple_mallet_vertex_shader,
+                R.raw.chap8_simple_mallet_vertex_shader);
         // Retrieve uniform locations for the shader program.
         uMatrixLocation = glGetUniformLocation(program, U_MATRIX);
         // Retrieve attribute locations for the shader program.

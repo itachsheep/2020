@@ -15,8 +15,8 @@ public class TextureShaderProgram extends ShaderProgram {
     private final int aTextureCoordinatesLocation;
 
     public TextureShaderProgram(Context context) {
-        super(context, R.raw.simple_texture_vertex_shader5,
-                R.raw.simple_texture_fragment_shader5);
+        super(context, R.raw.chap8_simple_texture_vertex_shader,
+                R.raw.chap8_simple_texture_fragment_shader);
 
         // Retrieve uniform locations for the shader program.
         uMatrixLocation = GLES20.glGetUniformLocation(program, U_MATRIX);
