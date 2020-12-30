@@ -28,7 +28,7 @@ public class ColorShaderProgram extends ShaderProgram {
 
     public ColorShaderProgram(Context context) {
         super(context, R.raw.chap8_simple_vertex_shader,
-                R.raw.chap8_simple_vertex_shader);
+                R.raw.chap8_simple_fragment_shader);
         // Retrieve uniform locations for the shader program.
         uMatrixLocation = glGetUniformLocation(program, U_MATRIX);
         // Retrieve attribute locations for the shader program.
