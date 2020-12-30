@@ -91,19 +91,19 @@ public class AirHockey8Renderer implements GLSurfaceView.Renderer {
         table.bindData(textureProgram);
         table.draw();
 
-        // Draw the mallets.
-        positionObjectInScene(0f, mallet.height / 2f, -0.4f);
-        colorProgram.useProgram();
-        colorProgram.setUniforms(modelViewProjectionMatrix, 1f, 0f, 0f);
-        mallet.bindData(colorProgram);
-        mallet.draw();
-
-        positionObjectInScene(0f, mallet.height / 2f, 0.4f);
-        colorProgram.setUniforms(modelViewProjectionMatrix, 0f, 0f, 1f);
-        // Note that we don't have to define the object data twice -- we just
-        // draw the same mallet again but in a different position and with a
-        // different color.
-        mallet.draw();
+//        // Draw the mallets.
+//        positionObjectInScene(0f, mallet.height / 2f, -0.4f);
+//        colorProgram.useProgram();
+//        colorProgram.setUniforms(modelViewProjectionMatrix, 1f, 0f, 0f);
+//        mallet.bindData(colorProgram);
+//        mallet.draw();
+//
+//        positionObjectInScene(0f, mallet.height / 2f, 0.4f);
+//        colorProgram.setUniforms(modelViewProjectionMatrix, 0f, 0f, 1f);
+//        // Note that we don't have to define the object data twice -- we just
+//        // draw the same mallet again but in a different position and with a
+//        // different color.
+//        mallet.draw();
 
         // Draw the puck.
         positionObjectInScene(0f, puck.height / 2f, 0f);
