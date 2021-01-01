@@ -82,9 +82,14 @@ public class AirHockey8Renderer implements GLSurfaceView.Renderer {
     public void onDrawFrame(GL10 gl10) {
         // Clear the rendering surface.
         GLES20.glClear(GL_COLOR_BUFFER_BIT);
+
+        /**
+         * 通过改变视图矩阵，实现桌面旋转
+         */
         mDeltaDegree += 1.0f;
         float eyeX = (float) (2.2f * Math.sin(Math.toRadians(mDeltaDegree)));
         float eyeZ = (float) (2.2f * Math.cos(Math.toRadians(mDeltaDegree)));
+
         Matrix.setLookAtM(viewMatrix, 0, eyeX, 1.2f, eyeZ,
                 0f, 0f, 0f, 0f, 1f, 0f);
         // Multiply the view and projection matrices together.
