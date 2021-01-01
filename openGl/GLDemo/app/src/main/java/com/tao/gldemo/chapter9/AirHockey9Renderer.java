@@ -83,6 +83,14 @@ public class AirHockey9Renderer implements GLSurfaceView.Renderer {
         malletPressed = Geometry.intersects(malletBoundingSphere, ray);
     }
 
+    /**
+     * 将二维的触碰点映射到三维空间的一条直线
+     * 为了知道二维的点，是否触碰到木槌，需要这个反转矩阵，
+     * 反转透视投影和透视除法。
+     * @param normalizedX
+     * @param normalizedY
+     * @return
+     */
     private Ray convertNormalized2DPointToRay(
             float normalizedX, float normalizedY) {
         // We'll convert these normalized device coordinates into world-space
@@ -216,6 +224,8 @@ public class AirHockey9Renderer implements GLSurfaceView.Renderer {
         puckPosition = puckPosition.translate(puckVector);
 
         // If the puck struck a side, reflect it off that side.
+        //冰球碰到桌面边缘判读，需要从边缘弹开
+        //puckVector 增加摩擦系数，模拟阻尼代码是冰球慢下来
         if (puckPosition.x < leftBound + puck.radius
                 || puckPosition.x > rightBound - puck.radius) {
             puckVector = new Vector(-puckVector.x, puckVector.y, puckVector.z);
