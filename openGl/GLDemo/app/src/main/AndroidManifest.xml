@@ -38,6 +38,10 @@
         </activity>
 
         <activity android:name=".chapter8.AirHockey8Activity">
+
+        </activity>
+
+        <activity android:name=".chapter9.AirHockey9Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

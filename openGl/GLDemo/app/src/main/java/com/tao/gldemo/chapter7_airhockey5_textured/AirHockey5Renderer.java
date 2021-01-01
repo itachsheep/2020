@@ -82,6 +82,8 @@ public class AirHockey5Renderer implements GLSurfaceView.Renderer {
         //清除屏幕
         GLES20.glClear(GL_COLOR_BUFFER_BIT);
 
+//        Matrix.setIdentityM(projectionMatrix,0);
+
         // Draw the table.
         //使用这个shader程序
         textureProgram.useProgram();
