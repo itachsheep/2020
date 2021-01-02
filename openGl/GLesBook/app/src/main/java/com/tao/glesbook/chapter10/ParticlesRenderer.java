@@ -62,8 +62,14 @@ public class ParticlesRenderer implements Renderer {
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         
         // Enable additive blending
-        /*glEnable(GL_BLEND);
-        glBlendFunc(GL_ONE, GL_ONE);*/
+        /**
+         * 解决粒子下降覆盖到原来粒子时候，整体变暗，粒子叠加发光，理论上是越来越亮
+         * 启用：混合技术
+         */
+        glEnable(GL_BLEND);
+        //输出 = （源因子 * 源片段） + （目标因子 * 目标片段）
+        //GL_ONE 源因子， GL_ONE 目标因子
+        glBlendFunc(GL_ONE, GL_ONE);
         
         particleProgram = new ParticleShaderProgram(context);        
         particleSystem = new ParticleSystem(10000);

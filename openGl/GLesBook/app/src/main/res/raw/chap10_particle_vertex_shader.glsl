@@ -18,9 +18,9 @@ void main()
     //a_ParticleStartTime 粒子生成时间，每个粒子是固定的。
     //粒子生成时间越早，运行时间越久  （一开始很难理解的算法，以为这两个值一直相同）
     v_ElapsedTime = u_Time - a_ParticleStartTime;    
-    //float gravityFactor = v_ElapsedTime * v_ElapsedTime / 8.0;
+    float gravityFactor = v_ElapsedTime * v_ElapsedTime / 8.0;
     vec3 currentPosition = a_Position + (a_DirectionVector * v_ElapsedTime);
-    //currentPosition.y -= gravityFactor;
+    currentPosition.y -= gravityFactor;
     gl_Position = u_Matrix * vec4(currentPosition, 1.0);
     gl_PointSize = 10.0;
 
