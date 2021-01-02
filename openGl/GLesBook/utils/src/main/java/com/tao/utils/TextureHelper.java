@@ -118,7 +118,7 @@ public class TextureHelper {
      *            provided in this order: left, right, bottom, top, front, back.
      * @return
      */
-    public static int loadCubeMap(Context context, int[] cubeResources) {
+    public static int loadCubeMap(Context context, int[] cubeResources) throws Exception {
         final int[] textureObjectIds = new int[1];
         glGenTextures(1, textureObjectIds, 0);
 
@@ -126,7 +126,7 @@ public class TextureHelper {
             if (LoggerConfig.ON) {
                 Log.w(TAG, "Could not generate a new OpenGL texture object.");
             }
-            return 0;
+            throw new Exception("glGenTextures failed");
         }
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inScaled = false;
@@ -142,7 +142,7 @@ public class TextureHelper {
                             + " could not be decoded.");
                 }
                 glDeleteTextures(1, textureObjectIds, 0);
-                return 0;
+                throw new Exception("decode bitmap failed");
             }
         }
         // Linear filtering for minification and magnification
@@ -160,6 +160,17 @@ public class TextureHelper {
 
         texImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, 0, cubeBitmaps[4], 0);
         texImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 0, cubeBitmaps[5], 0);
+
+//        glBindTexture(GL_TEXTURE_CUBE_MAP, textureObjectIds[1]);
+//        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+//        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+//        texImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 0, cubeBitmaps[0], 0);
+//        texImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X, 0, cubeBitmaps[1], 0);
+//        texImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, 0, cubeBitmaps[2], 0);
+//        texImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 0, cubeBitmaps[3], 0);
+//        texImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, 0, cubeBitmaps[4], 0);
+//        texImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 0, cubeBitmaps[5], 0);
+
 
         glBindTexture(GL_TEXTURE_2D, 0);
 

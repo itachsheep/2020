@@ -15,7 +15,7 @@ import com.tao.utils.ShaderHelper;
 import com.tao.utils.TextResourceReader;
 
 
-abstract class ShaderProgram {
+public abstract class ShaderProgram {
     // Uniform constants
     protected static final String U_MATRIX = "u_Matrix";
     protected static final String U_COLOR = "u_Color";

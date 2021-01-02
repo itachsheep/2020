@@ -29,12 +29,16 @@ import android.content.Context;
 import android.graphics.Color;
 import android.opengl.GLSurfaceView.Renderer;
 
+import com.tao.cube.CubeBox;
+import com.tao.cube.CubeShaderProgram;
 import com.tao.utils.Geometry.*;
+import com.tao.utils.LogUtils;
 import com.tao.utils.MatrixHelper;
 import com.tao.utils.TextureHelper;
 
 
-public class ParticlesRenderer implements Renderer {    
+public class ParticlesRenderer implements Renderer {
+    private static final String TAG = "ParticlesRenderer";
     private final Context context;
 
     private final float[] projectionMatrix = new float[16];    
@@ -43,6 +47,10 @@ public class ParticlesRenderer implements Renderer {
     
     private SkyboxShaderProgram skyboxProgram;
     private Skybox skybox;
+
+    private CubeShaderProgram cubeShaderProgram;
+    private CubeBox cubeBox;
+    private int cubeTexture;
     
     private ParticleShaderProgram particleProgram;      
     private ParticleSystem particleSystem;
@@ -78,7 +86,10 @@ public class ParticlesRenderer implements Renderer {
 
         skyboxProgram = new SkyboxShaderProgram(context);
         skybox = new Skybox();
-        
+
+        cubeShaderProgram = new CubeShaderProgram(context);
+        cubeBox = new CubeBox();
+
         particleProgram = new ParticleShaderProgram(context);        
         particleSystem = new ParticleSystem(10000);        
         globalStartTime = System.nanoTime();
@@ -110,10 +121,23 @@ public class ParticlesRenderer implements Renderer {
                 
         particleTexture = TextureHelper.loadTexture(context, R.drawable.particle_texture);
 
-        skyboxTexture = TextureHelper.loadCubeMap(context, 
-            new int[] { R.drawable.left, R.drawable.right,
-                        R.drawable.bottom, R.drawable.top, 
-                        R.drawable.front, R.drawable.back});
+
+        try {
+            skyboxTexture = TextureHelper.loadCubeMap(context,
+                    new int[]{R.drawable.left, R.drawable.right,
+                            R.drawable.bottom, R.drawable.top,
+                            R.drawable.front, R.drawable.back});
+
+            cubeTexture = TextureHelper.loadCubeMap(context,
+                    new int[]{R.drawable.pikaqiu, R.drawable.pikaqiu,
+                            R.drawable.pikaqiu, R.drawable.pikaqiu,
+                            R.drawable.pikaqiu, R.drawable.pikaqiu});
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        LogUtils.d(TAG,"skyboxTexture: " + skyboxTexture
+            + ", cubeTexture: " + cubeTexture);
     }
 
     @Override
@@ -127,10 +151,23 @@ public class ParticlesRenderer implements Renderer {
     @Override    
     public void onDrawFrame(GL10 glUnused) {        
         glClear(GL_COLOR_BUFFER_BIT);
-        drawSkybox();
+        //drawCube();
+        //drawSkybox();
+        drawCube();
         drawParticles();
     }
-    
+
+    private void drawCube() {
+        setIdentityM(viewMatrix, 0);
+        //rotateM(viewMatrix, 0, -yRotation, 1f, 0f, 0f);
+        //rotateM(viewMatrix, 0, -xRotation, 0f, 1f, 0f);
+        multiplyMM(viewProjectionMatrix, 0, projectionMatrix, 0, viewMatrix, 0);
+        cubeShaderProgram.useProgram();
+        cubeShaderProgram.setUniforms(viewProjectionMatrix, cubeTexture);
+        cubeBox.bindData(cubeShaderProgram);
+        cubeBox.draw();
+    }
+
     private void drawSkybox() {
         setIdentityM(viewMatrix, 0);
         rotateM(viewMatrix, 0, -yRotation, 1f, 0f, 0f);
