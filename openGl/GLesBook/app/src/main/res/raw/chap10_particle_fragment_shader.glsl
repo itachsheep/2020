@@ -1,5 +1,5 @@
 precision mediump float; 
-//uniform sampler2D u_TextureUnit;
+uniform sampler2D u_TextureUnit;
 varying vec3 v_Color;
 varying float v_ElapsedTime;     	 							    	   								
 void main()                    		
@@ -9,6 +9,7 @@ void main()
 
     //对于每个片段，使用勾股定理计算与圆心的距离，距离大于0.5半径的，
     //就不是圆的一部分，discard丢弃
+    /*
     float xDistance = 0.5 - gl_PointCoord.x;
     float yDistance = 0.5 - gl_PointCoord.y;
     float distanceFromCenter = 
@@ -20,10 +21,11 @@ void main()
     } else {            
         gl_FragColor = vec4(v_Color / v_ElapsedTime, 1.0);        
     }
+    */
 
-
-    /*
+    //使用gl_PointCoord作为纹理坐标在每个点上绘制纹理
+    //
     gl_FragColor = vec4(v_Color / v_ElapsedTime, 1.0)
                  * texture2D(u_TextureUnit, gl_PointCoord);
-    */
+
 }

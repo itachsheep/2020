@@ -49,13 +49,13 @@ public class ParticleShaderProgram extends ShaderProgram {
             glGetAttribLocation(program, A_PARTICLE_START_TIME);
     }
 	
-    public void setUniforms(float[] matrix, float elapsedTime) {
-    /*public void setUniforms(float[] matrix, float elapsedTime, int textureId) {*/
+    /*public void setUniforms(float[] matrix, float elapsedTime) {*/
+    public void setUniforms(float[] matrix, float elapsedTime, int textureId) {
         glUniformMatrix4fv(uMatrixLocation, 1, false, matrix, 0);
         glUniform1f(uTimeLocation, elapsedTime);        
-        /*glActiveTexture(GL_TEXTURE0);
+        glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, textureId);
-        glUniform1i(uTextureUnitLocation, 0);*/
+        glUniform1i(uTextureUnitLocation, 0);
     }
 
     public int getPositionAttributeLocation() {

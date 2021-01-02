@@ -124,7 +124,7 @@ public class ParticlesRenderer implements Renderer {
         
         random = new Random();  */
         
-        //texture = TextureHelper.loadTexture(context, R.drawable.particle_texture);
+        texture = TextureHelper.loadTexture(context, R.drawable.particle_texture);
     }
 
     @Override
@@ -164,8 +164,8 @@ public class ParticlesRenderer implements Renderer {
         }    */            
         
         particleProgram.useProgram();
-        particleProgram.setUniforms(viewProjectionMatrix, currentTime);
-        //particleProgram.setUniforms(viewProjectionMatrix, currentTime, texture);
+        //particleProgram.setUniforms(viewProjectionMatrix, currentTime);
+        particleProgram.setUniforms(viewProjectionMatrix, currentTime, texture);
         particleSystem.bindData(particleProgram);
         particleSystem.draw(); 
     }
