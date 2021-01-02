@@ -10,15 +10,12 @@ package com.tao.glesbook.chapter10;
 
 import static android.opengl.GLES20.GL_POINTS;
 import static android.opengl.GLES20.glDrawArrays;
-import static com.tao.glesbook.utils.Constants.BYTES_PER_FLOAT;
+import static com.tao.utils.Constants.BYTES_PER_FLOAT;
 
 import android.graphics.Color;
 
-import com.tao.glesbook.LogUtils;
 import com.tao.glesbook.data.VertexArray;
-import com.tao.glesbook.utils.Geometry.*;
-
-import java.util.function.LongUnaryOperator;
+import com.tao.utils.Geometry.*;
 
 public class ParticleSystem {
     private static final String TAG = "ParticleSystem";

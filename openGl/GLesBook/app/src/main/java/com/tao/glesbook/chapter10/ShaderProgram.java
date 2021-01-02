@@ -11,8 +11,8 @@ package com.tao.glesbook.chapter10;
 import static android.opengl.GLES20.glUseProgram;
 import android.content.Context;
 
-import com.tao.glesbook.utils.ShaderHelper;
-import com.tao.glesbook.utils.TextResourceReader;
+import com.tao.utils.ShaderHelper;
+import com.tao.utils.TextResourceReader;
 
 abstract class ShaderProgram {
     // Uniform constants

@@ -29,9 +29,9 @@ import android.graphics.Color;
 import android.opengl.GLSurfaceView.Renderer;
 
 import com.tao.glesbook.R;
-import com.tao.glesbook.utils.Geometry.*;
-import com.tao.glesbook.utils.MatrixHelper;
-import com.tao.glesbook.utils.TextureHelper;
+import com.tao.utils.Geometry.*;
+import com.tao.utils.MatrixHelper;
+import com.tao.utils.TextureHelper;
 
 import java.util.Random;
 

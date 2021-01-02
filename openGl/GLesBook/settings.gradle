@@ -1,2 +1,4 @@
+include ':utils'
+include ':chapter11'
 include ':app'
 rootProject.name = "GlesBook"

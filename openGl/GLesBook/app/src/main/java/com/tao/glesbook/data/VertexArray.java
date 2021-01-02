@@ -11,7 +11,7 @@ package com.tao.glesbook.data;
 import static android.opengl.GLES20.GL_FLOAT;
 import static android.opengl.GLES20.glEnableVertexAttribArray;
 import static android.opengl.GLES20.glVertexAttribPointer;
-import static com.tao.glesbook.utils.Constants.BYTES_PER_FLOAT;
+import static com.tao.utils.Constants.BYTES_PER_FLOAT;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

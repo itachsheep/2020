@@ -8,7 +8,7 @@
 ***/
 
 package com.tao.glesbook.chapter10;
-import com.tao.glesbook.utils.Geometry.*;
+import com.tao.utils.Geometry.*;
 
 import static android.opengl.Matrix.multiplyMV;
 import static android.opengl.Matrix.setRotateEulerM;

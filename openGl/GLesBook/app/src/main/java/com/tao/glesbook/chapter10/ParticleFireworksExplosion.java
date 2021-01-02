@@ -15,7 +15,7 @@ import java.util.Random;
 
 import android.graphics.Color;
 
-import com.tao.glesbook.utils.Geometry.*;
+import com.tao.utils.Geometry.*;
 
 public class ParticleFireworksExplosion {
     private final Random random = new Random();
