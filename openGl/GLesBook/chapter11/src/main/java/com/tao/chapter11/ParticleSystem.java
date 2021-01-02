@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/kbogla for more book information.
 ***/
-package com.tao.glesbook.chapter10;
+package com.tao.chapter11;
 
 import static android.opengl.GLES20.GL_POINTS;
 import static android.opengl.GLES20.glDrawArrays;
@@ -14,11 +14,11 @@ import static com.tao.utils.Constants.BYTES_PER_FLOAT;
 
 import android.graphics.Color;
 
-import com.tao.utils.VertexArray;
 import com.tao.utils.Geometry.*;
+import com.tao.utils.VertexArray;
+
 
 public class ParticleSystem {
-    private static final String TAG = "ParticleSystem";
     private static final int POSITION_COMPONENT_COUNT = 3;
     private static final int COLOR_COMPONENT_COUNT = 3;
     private static final int VECTOR_COMPONENT_COUNT = 3;    
@@ -45,33 +45,22 @@ public class ParticleSystem {
         this.maxParticleCount = maxParticleCount;
     }
 
-    /**
-     * 创建粒子，传入位置，颜色，方向和创建时间
-     * @param position
-     * @param color
-     * @param direction
-     * @param particleStartTime
-     */
     public void addParticle(Point position, int color, Vector direction,
                             float particleStartTime) {
         final int particleOffset = nextParticle * TOTAL_COMPONENT_COUNT;
-		
         int currentOffset = particleOffset;        
         nextParticle++;
         
         if (currentParticleCount < maxParticleCount) {
             currentParticleCount++;
         }
-
-        /**
-         * 当已经到数组末尾，从0开始回收旧的粒子
-         */
+        
         if (nextParticle == maxParticleCount) {
             // Start over at the beginning, but keep currentParticleCount so
             // that all the other particles still get drawn.
             nextParticle = 0;
         }  
-        
+
         particles[currentOffset++] = position.x;
         particles[currentOffset++] = position.y;
         particles[currentOffset++] = position.z;
@@ -85,8 +74,6 @@ public class ParticleSystem {
         particles[currentOffset++] = direction.z;             
         
         particles[currentOffset++] = particleStartTime;
-//        particles[currentOffset++] = 1;
-        //LogUtils.d(TAG,"addParticle " + particleStartTime);
 
         vertexArray.updateBuffer(particles, particleOffset, TOTAL_COMPONENT_COUNT);
     }
@@ -114,7 +101,6 @@ public class ParticleSystem {
     }
 
     public void draw() {
-        //currentParticleCount 当前数组中粒子的个数
         glDrawArrays(GL_POINTS, 0, currentParticleCount);
     }
 }
