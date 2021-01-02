@@ -33,6 +33,8 @@ import com.tao.glesbook.utils.Geometry.*;
 import com.tao.glesbook.utils.MatrixHelper;
 import com.tao.glesbook.utils.TextureHelper;
 
+import java.util.Random;
+
 
 public class ParticlesRenderer implements Renderer {
     private final Context context;
@@ -40,17 +42,17 @@ public class ParticlesRenderer implements Renderer {
     private final float[] projectionMatrix = new float[16];    
     private final float[] viewMatrix = new float[16];
     private final float[] viewProjectionMatrix = new float[16];
-    /*
+
     // Maximum saturation and value.
-    private final float[] hsv = {0f, 1f, 1f};*/
+    private final float[] hsv = {0f, 1f, 1f};
     
     private ParticleShaderProgram particleProgram;      
     private ParticleSystem particleSystem;
     private ParticleShooter redParticleShooter;
     private ParticleShooter greenParticleShooter;
     private ParticleShooter blueParticleShooter;
-    /*private ParticleFireworksExplosion particleFireworksExplosion;
-    private Random random;*/
+    private ParticleFireworksExplosion particleFireworksExplosion;
+    private Random random;
     private long globalStartTime;
     private int texture;
 
@@ -119,10 +121,10 @@ public class ParticlesRenderer implements Renderer {
             Color.rgb(5, 50, 255),
             angleVarianceInDegrees,
             speedVariance);
-        /*
+
+        //烟花效果
         particleFireworksExplosion = new ParticleFireworksExplosion();
-        
-        random = new Random();  */
+        random = new Random();
         
         texture = TextureHelper.loadTexture(context, R.drawable.particle_texture);
     }
@@ -149,19 +151,18 @@ public class ParticlesRenderer implements Renderer {
         redParticleShooter.addParticles(particleSystem, currentTime, 5);
         greenParticleShooter.addParticles(particleSystem, currentTime, 5);              
         blueParticleShooter.addParticles(particleSystem, currentTime, 5);
-        /*
+
         if (random.nextFloat() < 0.02f) {
             hsv[0] = random.nextInt(360);
-            
             particleFireworksExplosion.addExplosion(
                 particleSystem, 
-                new Vector(
+                new Point(
                     -1f + random.nextFloat() * 2f, 
                      3f + random.nextFloat() / 2f,
                     -1f + random.nextFloat() * 2f), 
                 Color.HSVToColor(hsv), 
                 globalStartTime);                              
-        }    */            
+        }
         
         particleProgram.useProgram();
         //particleProgram.setUniforms(viewProjectionMatrix, currentTime);
