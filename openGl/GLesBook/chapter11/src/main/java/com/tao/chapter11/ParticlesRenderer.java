@@ -152,7 +152,7 @@ public class ParticlesRenderer implements Renderer {
     public void onDrawFrame(GL10 glUnused) {        
         glClear(GL_COLOR_BUFFER_BIT);
         //drawCube();
-        //drawSkybox();
+        drawSkybox();
         drawCube();
         drawParticles();
     }

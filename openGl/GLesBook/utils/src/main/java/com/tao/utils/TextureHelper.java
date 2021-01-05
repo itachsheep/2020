@@ -118,7 +118,7 @@ public class TextureHelper {
      *            provided in this order: left, right, bottom, top, front, back.
      * @return
      */
-    public static int loadCubeMap(Context context, int[] cubeResources) throws Exception {
+    public static int loadCubeMap(Context context, int[] cubeResources)  {
         final int[] textureObjectIds = new int[1];
         glGenTextures(1, textureObjectIds, 0);
 
@@ -126,7 +126,8 @@ public class TextureHelper {
             if (LoggerConfig.ON) {
                 Log.w(TAG, "Could not generate a new OpenGL texture object.");
             }
-            throw new Exception("glGenTextures failed");
+            //throw new Exception("glGenTextures failed");
+            return -1;
         }
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inScaled = false;
@@ -142,7 +143,8 @@ public class TextureHelper {
                             + " could not be decoded.");
                 }
                 glDeleteTextures(1, textureObjectIds, 0);
-                throw new Exception("decode bitmap failed");
+                // throw new Exception("decode bitmap failed");
+                return -1;
             }
         }
         // Linear filtering for minification and magnification
