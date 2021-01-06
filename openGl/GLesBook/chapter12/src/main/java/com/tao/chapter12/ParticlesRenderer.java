@@ -107,7 +107,10 @@ public class ParticlesRenderer implements Renderer {
         //如果片段比已经存在的片段更近，就绘制它，否则丢弃，主要是看这个片段是否被
         //已经存在的片段遮挡
         glEnable(GL_DEPTH_TEST);
-        //glEnable(GL_CULL_FACE);
+
+        //剔除技术：消除隐藏面，因为地形图的下方没有什么用处，所以
+        //告诉opengl关闭两面绘制，削减绘制开销
+        glEnable(GL_CULL_FACE);
         
         heightmapProgram = new HeightmapShaderProgram(context);
         heightmap = new Heightmap(((BitmapDrawable)context.getResources()
@@ -197,6 +200,9 @@ public class ParticlesRenderer implements Renderer {
         setIdentityM(modelMatrix, 0);
         updateMvpMatrixForSkybox();
 
+
+        //打开深度缓冲，导致天空盒绘制不出来，暂时改变深度缓冲算法
+
         //opengl默认情况只绘制比其他片段更近，或者比远平面更近的片段，
         //深度测试打开带来一个问题，看不到天空盒的任何部分，
         //改变深度测试算法，新片段和已经存在的片段较近，或者在同等距离，绘制它
@@ -210,24 +216,29 @@ public class ParticlesRenderer implements Renderer {
    
     private void drawParticles() {        
         float currentTime = (System.nanoTime() - globalStartTime) / 1000000000f;
-        
+
         redParticleShooter.addParticles(particleSystem, currentTime, 1);
-        greenParticleShooter.addParticles(particleSystem, currentTime, 1);              
-        blueParticleShooter.addParticles(particleSystem, currentTime, 1);              
-        
+        greenParticleShooter.addParticles(particleSystem, currentTime, 1);
+        blueParticleShooter.addParticles(particleSystem, currentTime, 1);
+
         setIdentityM(modelMatrix, 0);
         updateMvpMatrix();
-        
+
+        //粒子被地面裁剪，且彼此遮罩
+        //glDepthMask：在粒子接触到地面的地方，需要他们彼此不遮挡，且还需要裁剪
+        //保持深度缓冲开启的同时，禁用深度更新，粒子将对地面进行针对测试
+        //但是测试结果不会进入深度缓冲区，这样就不会彼此阻挡
         glDepthMask(false);
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE);
-        
+
         particleProgram.useProgram();
         particleProgram.setUniforms(modelViewProjectionMatrix, currentTime, particleTexture);
         particleSystem.bindData(particleProgram);
-        particleSystem.draw(); 
-        
+        particleSystem.draw();
+
         glDisable(GL_BLEND);
+        //关闭glDepthMask
         glDepthMask(true);
     }
     
