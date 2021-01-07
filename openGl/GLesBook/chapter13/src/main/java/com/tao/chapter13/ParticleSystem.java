@@ -8,14 +8,14 @@
 ***/
 package com.tao.chapter13;
 
+import static android.opengl.GLES20.GL_POINTS;
+import static android.opengl.GLES20.glDrawArrays;
+import static com.tao.utils.Constants.BYTES_PER_FLOAT;
+
 import android.graphics.Color;
 
 import com.tao.utils.Geometry.*;
 import com.tao.utils.VertexArray;
-
-import static android.opengl.GLES20.GL_POINTS;
-import static android.opengl.GLES20.glDrawArrays;
-import static com.tao.utils.Constants.BYTES_PER_FLOAT;
 
 
 public class ParticleSystem {
