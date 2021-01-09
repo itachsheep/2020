@@ -11,15 +11,25 @@ package com.tao.chapter13;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 
+import com.tao.utils.Geometry;
+import com.tao.utils.Geometry.*;
+
 import static android.opengl.GLES20.GL_ELEMENT_ARRAY_BUFFER;
 import static android.opengl.GLES20.GL_TRIANGLES;
 import static android.opengl.GLES20.GL_UNSIGNED_SHORT;
 import static android.opengl.GLES20.glBindBuffer;
 import static android.opengl.GLES20.glDrawElements;
+import static com.tao.utils.Constants.BYTES_PER_FLOAT;
 
 public class Heightmap {
     private static final int POSITION_COMPONENT_COUNT = 3;
-            
+
+    private static final int NORMAL_COMPONENT_COUNT = 3;
+    private static final int TOTAL_COMPONENT_COUNT =
+            POSITION_COMPONENT_COUNT + NORMAL_COMPONENT_COUNT;
+    private static final int STRIDE =
+            (POSITION_COMPONENT_COUNT + NORMAL_COMPONENT_COUNT) * BYTES_PER_FLOAT;
+
     private final int width;
     private final int height;
     private final int numElements;
@@ -47,9 +57,9 @@ public class Heightmap {
         bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
         bitmap.recycle();
 
-        //把位图像素，转化为高度图数据
+        //把位图像素，转化为高度图数据，为法线保留位置
         final float[] heightmapVertices = 
-            new float[width * height * POSITION_COMPONENT_COUNT];        
+            new float[width * height * TOTAL_COMPONENT_COUNT];
         int offset = 0;      
         for (int row = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
@@ -58,18 +68,54 @@ public class Heightmap {
                 // bitmap height mapped to Z, and Y representing the height. We
                 // assume the heightmap is grayscale, and use the value of the
                 // red color to determine the height.
-                final float xPosition = ((float)col / (float)(width - 1)) - 0.5f;
-                final float yPosition = 
-                    (float)Color.red(pixels[(row * height) + col]) / (float)255;
-                final float zPosition = ((float)row / (float)(height - 1)) - 0.5f;                                                
-                
-                heightmapVertices[offset++] = xPosition;
-                heightmapVertices[offset++] = yPosition;
-                heightmapVertices[offset++] = zPosition;                
+                final Point point = getPoint(pixels, row, col);
+
+                heightmapVertices[offset++] = point.x;
+                heightmapVertices[offset++] = point.y;
+                heightmapVertices[offset++] = point.z;
+
+                final Geometry.Point top = getPoint(pixels, row - 1, col);
+                final Point left = getPoint(pixels, row, col - 1);
+                final Point right = getPoint(pixels, row, col + 1);
+                final Point bottom = getPoint(pixels, row + 1, col);
+
+                final Vector rightToLeft = Geometry.vectorBetween(right, left);
+                final Vector topToBottom = Geometry.vectorBetween(top, bottom);
+                final Vector normal = rightToLeft.crossProduct(topToBottom).normalize();
+
+                heightmapVertices[offset++] = normal.x;
+                heightmapVertices[offset++] = normal.y;
+                heightmapVertices[offset++] = normal.z;
             }
         }
         return heightmapVertices;        
     }
+
+    /**
+     * Returns a point at the expected position given by row and col, but if the
+     * position is out of bounds, then it clamps the position and uses the
+     * clamped position to read the height. For example, calling with row = -1
+     * and col = 5 will set the position as if the point really was at -1 and 5,
+     * but the height will be set to the heightmap height at (0, 5), since (-1,
+     * 5) is out of bounds. This is useful when we're generating normals, and we
+     * need to read the heights of neighbouring points.
+     */
+    private Point getPoint(int[] pixels, int row, int col) {
+        float x = ((float)col / (float)(width - 1)) - 0.5f;
+        float z = ((float)row / (float)(height - 1)) - 0.5f;
+
+        row = clamp(row, 0, width - 1);
+        col = clamp(col, 0, height - 1);
+
+        float y = (float)Color.red(pixels[(row * height) + col]) / (float)255;
+
+        return new Point(x, y, z);
+    }
+
+    private int clamp(int val, int min, int max) {
+        return Math.max(min, Math.min(max, val));
+    }
+
     private int calculateNumElements() {
         // There should be 2 triangles for every group of 4 vertices, so a
         // heightmap of, say, 10x10 pixels would have 9x9 groups, with 2
@@ -113,9 +159,15 @@ public class Heightmap {
         return indexData;
     }
     public void bindData(HeightmapShaderProgram heightmapProgram) {
-        vertexBuffer.setVertexAttribPointer(0, 
-            heightmapProgram.getPositionAttributeLocation(), 
-            POSITION_COMPONENT_COUNT, 0);                       
+        vertexBuffer.setVertexAttribPointer(0,
+                heightmapProgram.getPositionAttributeLocation(),
+                POSITION_COMPONENT_COUNT, STRIDE);
+
+        vertexBuffer.setVertexAttribPointer(
+                POSITION_COMPONENT_COUNT * BYTES_PER_FLOAT,
+                heightmapProgram.getNormalAttributeLocation(),
+                NORMAL_COMPONENT_COUNT, STRIDE);
+
     }
     
     public void draw() {
