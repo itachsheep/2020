@@ -8,6 +8,8 @@
 ***/
 package com.tao.chapter13;
 
+import android.content.Context;
+
 import static android.opengl.GLES20.GL_TEXTURE0;
 import static android.opengl.GLES20.GL_TEXTURE_CUBE_MAP;
 import static android.opengl.GLES20.glActiveTexture;
@@ -16,7 +18,6 @@ import static android.opengl.GLES20.glGetAttribLocation;
 import static android.opengl.GLES20.glGetUniformLocation;
 import static android.opengl.GLES20.glUniform1i;
 import static android.opengl.GLES20.glUniformMatrix4fv;
-import android.content.Context;
 
 
 public class SkyboxShaderProgram extends ShaderProgram {

@@ -8,16 +8,16 @@
 ***/
 package com.tao.chapter13;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.ShortBuffer;
+
 import static android.opengl.GLES20.GL_ELEMENT_ARRAY_BUFFER;
 import static android.opengl.GLES20.GL_STATIC_DRAW;
 import static android.opengl.GLES20.glBindBuffer;
 import static android.opengl.GLES20.glBufferData;
 import static android.opengl.GLES20.glGenBuffers;
 import static com.tao.utils.Constants.BYTES_PER_SHORT;
-
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.ShortBuffer;
 
 public class IndexBuffer {
     private final int bufferId;
@@ -33,7 +33,8 @@ public class IndexBuffer {
         
         bufferId = buffers[0];
         
-        // Bind to the buffer. 
+        // Bind to the buffer.
+        //索引缓冲 使用 GL_ELEMENT_ARRAY_BUFFER
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffers[0]);
         
         // Transfer data to native memory.

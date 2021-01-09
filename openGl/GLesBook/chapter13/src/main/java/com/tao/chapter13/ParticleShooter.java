@@ -8,17 +8,17 @@
 ***/
 package com.tao.chapter13;
 
-import java.util.Random;
-
 import android.opengl.Matrix;
 
-import com.tao.utils.Geometry.*;
+import com.tao.utils.Geometry.Point;
+import com.tao.utils.Geometry.Vector;
 
+import java.util.Random;
 
 /** This class shoots particles in a particular direction. */
 
 public class ParticleShooter {       
-    private final Point position;
+    private final Point position;    
     private final int color;    
 
     private final float angleVariance;
@@ -31,8 +31,8 @@ public class ParticleShooter {
     private float[] resultVector = new float[4];
 
     public ParticleShooter(
-        Point position, Vector direction, int color, 
-        float angleVarianceInDegrees, float speedVariance) {
+            Point position, Vector direction, int color,
+            float angleVarianceInDegrees, float speedVariance) {
 
         this.position = position;        
         this.color = color;        
