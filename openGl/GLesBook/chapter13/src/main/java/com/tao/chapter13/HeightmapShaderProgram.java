@@ -48,4 +48,8 @@ public class HeightmapShaderProgram extends ShaderProgram {
     public int getPositionAttributeLocation() {
         return aPositionLocation;
     }
+
+    public int getNormalAttributeLocation() {
+        return aNormalLocation;
+    }
 }

@@ -70,7 +70,10 @@ public class ParticlesRenderer implements Renderer {
     private int particleTexture;
     private int skyboxTexture;
     
-    private float xRotation, yRotation;  
+    private float xRotation, yRotation;
+
+    //这个向量指向天空的太阳
+    private final Vector vectorToLight = new Vector(0.61f, 0.64f, -0.47f).normalize();
 
     public ParticlesRenderer(Context context) {
         this.context = context;
@@ -192,7 +195,8 @@ public class ParticlesRenderer implements Renderer {
         scaleM(modelMatrix, 0, 100f, 10f, 100f);
         updateMvpMatrix();
         heightmapProgram.useProgram();
-        heightmapProgram.setUniforms(modelViewProjectionMatrix);
+        //heightmapProgram.setUniforms(modelViewProjectionMatrix);
+        heightmapProgram.setUniforms(modelViewProjectionMatrix, vectorToLight);
         heightmap.bindData(heightmapProgram);
         heightmap.draw(); 
     }

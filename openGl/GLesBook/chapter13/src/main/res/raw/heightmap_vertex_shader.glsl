@@ -18,10 +18,16 @@ void main()
     float diffuse = max(dot(scaledNormal, u_VectorToLight), 0.0);
     v_Color *= diffuse;
 
+    //伪造漫反射，避免山是全黑的，实际在太阳照射下，不可能全黑
+    float ambient = 0.2;
+    v_Color += ambient;
+
     //mix 两个不同颜色做平滑插值
-    v_Color = mix(vec3(0.180, 0.467, 0.153),    // A dark green 
+    /*
+    v_Color = mix(vec3(0.180, 0.467, 0.153),    // A dark green
                   vec3(0.660, 0.670, 0.680),    // A stony gray 
                   a_Position.y);
+                  */
 		
     gl_Position = u_Matrix * vec4(a_Position, 1.0);    
 }
