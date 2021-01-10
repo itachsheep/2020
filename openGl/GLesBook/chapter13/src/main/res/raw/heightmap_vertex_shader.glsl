@@ -13,6 +13,8 @@ uniform vec4 u_PointLightPositions[3];// In eye space
 // 点光源颜色，定义为数组，传递多个向量
 uniform vec3 u_PointLightColors[3];
 
+//用vec4表示其位置，减少vec3 和 vec4 之间的转化，不需要改变顶点数据，
+//opengl默认1为第四个分量，但是小心uniform，必须指定所有分量
 attribute vec4 a_Position;
 //高度图法线 属性
 attribute vec3 a_Normal;
