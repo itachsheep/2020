@@ -73,7 +73,10 @@ public class ParticlesRenderer implements Renderer {
     private float xRotation, yRotation;
 
     //这个向量指向天空的太阳
-    private final Vector vectorToLight = new Vector(0.61f, 0.64f, -0.47f).normalize();
+    //private final Vector vectorToLight = new Vector(0.61f, 0.64f, -0.47f).normalize();
+    private final Vector vectorToLight = new Vector(0.30f, 0.35f, -0.89f).normalize();
+    //private final Vector vectorToLight = new Vector(-0.61f, 0.64f, 0.47f).normalize();
+
 
     public ParticlesRenderer(Context context) {
         this.context = context;
@@ -154,10 +157,15 @@ public class ParticlesRenderer implements Renderer {
                 
         particleTexture = TextureHelper.loadTexture(context, R.drawable.particle_texture);
 
-        skyboxTexture = TextureHelper.loadCubeMap(context, 
+        /*skyboxTexture = TextureHelper.loadCubeMap(context,
             new int[] { R.drawable.left, R.drawable.right,
                         R.drawable.bottom, R.drawable.top, 
-                        R.drawable.front, R.drawable.back});
+                        R.drawable.front, R.drawable.back});*/
+        //切换到夜晚的天空盒子
+        skyboxTexture = TextureHelper.loadCubeMap(context,
+                new int[] {R.drawable.night_left, R.drawable.night_right,
+                        R.drawable.night_bottom, R.drawable.night_top,
+                        R.drawable.night_front, R.drawable.night_back});
     }
 
     @Override

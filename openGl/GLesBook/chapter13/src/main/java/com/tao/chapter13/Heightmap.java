@@ -101,12 +101,16 @@ public class Heightmap {
      * need to read the heights of neighbouring points.
      */
     private Point getPoint(int[] pixels, int row, int col) {
+        //高度图每个方向都是1个单位宽，且以x-z平面上的（0，0）为中心
+        //
         float x = ((float)col / (float)(width - 1)) - 0.5f;
         float z = ((float)row / (float)(height - 1)) - 0.5f;
 
         row = clamp(row, 0, width - 1);
         col = clamp(col, 0, height - 1);
 
+        //假设这个图是灰度图，读入其对应像素的红色分量，并把它除以255，得到高度
+        //0 对应 0， 255对应1
         float y = (float)Color.red(pixels[(row * height) + col]) / (float)255;
 
         return new Point(x, y, z);

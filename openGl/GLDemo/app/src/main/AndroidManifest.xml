@@ -22,7 +22,10 @@
         </activity>
 
         <activity android:name=".chapter4_airhockey2.AirHockey2Activity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".chapter5_airhockey3ortho.AirHockey3Activity">
@@ -42,10 +45,7 @@
         </activity>
 
         <activity android:name=".chapter9.AirHockey9Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
     </application>
 
