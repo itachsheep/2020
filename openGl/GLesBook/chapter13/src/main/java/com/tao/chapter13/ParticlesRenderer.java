@@ -37,11 +37,14 @@ import static android.opengl.GLES20.glDepthMask;
 import static android.opengl.GLES20.glDisable;
 import static android.opengl.GLES20.glEnable;
 import static android.opengl.GLES20.glViewport;
+import static android.opengl.Matrix.invertM;
 import static android.opengl.Matrix.multiplyMM;
+import static android.opengl.Matrix.multiplyMV;
 import static android.opengl.Matrix.rotateM;
 import static android.opengl.Matrix.scaleM;
 import static android.opengl.Matrix.setIdentityM;
 import static android.opengl.Matrix.translateM;
+import static android.opengl.Matrix.transposeM;
 
 
 public class ParticlesRenderer implements Renderer {    
@@ -72,10 +75,29 @@ public class ParticlesRenderer implements Renderer {
     
     private float xRotation, yRotation;
 
+
     //这个向量指向天空的太阳
     //private final Vector vectorToLight = new Vector(0.61f, 0.64f, -0.47f).normalize();
-    private final Vector vectorToLight = new Vector(0.30f, 0.35f, -0.89f).normalize();
-    //private final Vector vectorToLight = new Vector(-0.61f, 0.64f, 0.47f).normalize();
+    //private final Vector vectorToLight = new Vector(0.30f, 0.35f, -0.89f).normalize();
+
+    final float[] vectorToLight = {0.30f, 0.35f, -0.89f, 0f};
+
+    //这些位置和颜色与每个粒子发射器设定的位置颜色大致匹配
+    //主要区别点在于每个点光源都被放在它的粒子发射器上方一个单位
+    //
+    private final float[] pointLightPositions = new float[]
+            {-1f, 1f, 0f, 1f,
+                    0f, 1f, 0f, 1f,
+                    1f, 1f, 0f, 1f};
+
+    private final float[] pointLightColors = new float[]
+            {1.00f, 0.20f, 0.02f,
+                    0.02f, 0.25f, 0.02f,
+                    0.02f, 0.20f, 1.00f};
+    //定义两个新的矩阵，
+    private final float[] modelViewMatrix = new float[16];
+    //倒置矩阵转置
+    private final float[] it_modelViewMatrix = new float[16];
 
 
     public ParticlesRenderer(Context context) {
@@ -204,7 +226,21 @@ public class ParticlesRenderer implements Renderer {
         updateMvpMatrix();
         heightmapProgram.useProgram();
         //heightmapProgram.setUniforms(modelViewProjectionMatrix);
-        heightmapProgram.setUniforms(modelViewProjectionMatrix, vectorToLight);
+        //heightmapProgram.setUniforms(modelViewProjectionMatrix, vectorToLight);
+
+        final float[] vectorToLightInEyeSpace = new float[4];
+        final float[] pointPositionsInEyeSpace = new float[12];
+        //需要把方向光的向量和点光源的位置放入到眼空间中，乘以视图矩阵，
+        // 那些位置已经在世界空间了，因此不必事先乘以模型矩阵
+        multiplyMV(vectorToLightInEyeSpace, 0, viewMatrix, 0, vectorToLight, 0);
+        multiplyMV(pointPositionsInEyeSpace, 0, viewMatrix, 0, pointLightPositions, 0);
+        multiplyMV(pointPositionsInEyeSpace, 4, viewMatrix, 0, pointLightPositions, 4);
+        multiplyMV(pointPositionsInEyeSpace, 8, viewMatrix, 0, pointLightPositions, 8);
+
+        heightmapProgram.setUniforms(modelViewMatrix, it_modelViewMatrix,
+                modelViewProjectionMatrix, vectorToLightInEyeSpace,
+                pointPositionsInEyeSpace, pointLightColors);
+
         heightmap.bindData(heightmapProgram);
         heightmap.draw(); 
     }
@@ -256,8 +292,18 @@ public class ParticlesRenderer implements Renderer {
     }
     
     private void updateMvpMatrix() {
-        multiplyMM(tempMatrix, 0, viewMatrix, 0, modelMatrix, 0);
+        /*multiplyMM(tempMatrix, 0, viewMatrix, 0, modelMatrix, 0);
         multiplyMM(modelViewProjectionMatrix, 0, projectionMatrix, 0, tempMatrix, 0);
+        */
+        //把modelViewMatrix设置为合并后的模型视图矩阵，
+        //把it_modelViewMatrix设置为反转矩阵的倒置
+        multiplyMM(modelViewMatrix, 0, viewMatrix, 0, modelMatrix, 0);
+        invertM(tempMatrix, 0, modelViewMatrix, 0);
+        transposeM(it_modelViewMatrix, 0, tempMatrix, 0);
+        multiplyMM(
+                modelViewProjectionMatrix, 0,
+                projectionMatrix, 0,
+                modelViewMatrix, 0);
     }   
     private void updateMvpMatrixForSkybox() {
         multiplyMM(tempMatrix, 0, viewMatrixForSkybox, 0, modelMatrix, 0);
